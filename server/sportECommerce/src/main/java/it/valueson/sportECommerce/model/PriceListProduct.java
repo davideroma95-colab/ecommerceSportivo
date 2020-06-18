@@ -10,17 +10,18 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "AzioneProfilo")
-public class AzioneProfilo {
+@Table(name = "PriceListProduct")
+public class PriceListProduct {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private Double price;
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idProdfilo")
-	private Profilo profilo;
+	@JoinColumn(name = "idPriceList")
+	private PriceList priceList = new PriceList();
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idAzione")
-	private Azione azione;
+	@JoinColumn(name = "idProduct")
+	private Product product = new Product();
 
 }
